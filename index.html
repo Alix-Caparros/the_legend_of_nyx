@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bluum ✿</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400&family=Playfair+Display:ital@1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- NAV HORIZONTALE EN HAUT -->
+  <nav class="top-nav" aria-label="Navigation principale">
+    <a class="nav-logo" href="#home"><img src="images/logo.png" width="400"></a>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="lore.html">Lore</a></li>
+      <li><a href="univers.html">Univers</a></li>
+    </ul>
+  </nav>
+
+  <!-- NAV LATÉRALE (DOTS) À DROITE -->
+  <aside class="side-nav" aria-label="Navigation par sections">
+    <div class="side-nav-flower"><img src="images/flower-icon.png" width="30"></div>
+    <div class="side-nav-line"></div>
+    <div class="side-nav-dots">
+      <button class="side-dot active" data-target="home"    data-label="Home"    aria-label="Aller à Home"></button>
+      <button class="side-dot"        data-target="about"   data-label="About"   aria-label="Aller à About"></button>
+      <button class="side-dot"        data-target="lore"    data-label="Lore"    aria-label="Aller à Lore"></button>
+      <button class="side-dot"        data-target="univers" data-label="Univers" aria-label="Aller à Univers"></button>
+    </div>
+  </aside>
+
+  <!-- HOME -->
+  <section id="home">
+    <div class="home-deco deco-1"></div>
+    <div class="home-deco deco-2"></div>
+    <div class="home-deco deco-3"></div>
+    <div class="petals" id="petals"></div>
+
+    <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;">
+      <p class="home-eyebrow">✿ original character ✿</p>
+      <h1 class="home-title">The Legend of Nyx<br/><em>Bluum</em></h1>
+      <p class="home-sub">On dit qu'elle était archéologue, mais certains vous diront qu'elle n'était que passion...</p>
+      <a href="#about" class="home-btn">Découvrir →</a>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <span>Défiler</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-portrait reveal">
+        <div class="portrait-frame"><img src="images/bluum1.jpg" width="450"></div>
+        <div class="portrait-tag">@TheOgress</div>
+      </div>
+      <div class="about-content reveal" style="transition-delay:0.15s">
+        <p class="section-label">✦ About</p>
+        <h2 class="section-title">Une fille <em>douce</em><br/>au passé complexe</h2>
+        <p class="about-text">
+          Bluum est une Sheikah passionnée par le temps. Accompagnée de sa fée Mi, elle sera décrite par son entourage comme une femme curieuse et enthousiaste, toujours là pour redonner le sourire à qui le demande.
+        </p>
+        <p class="about-text" style="margin-top:1rem;">
+          Pourtant, derrière ses grands rêves d'amour, elle découvrira une destinée qu'elle n'aura jamais demandée. Celle de corriger les erreurs passées de son ancêtre qui était, auparavant, bien l'opposé de sa descendante.
+        </p>
+        <div class="about-tags">
+          <span class="tag">✿ Extravertie</span>
+          <span class="tag">☽ Rêveuse</span>
+          <span class="tag">♡ Empathique</span>
+          <span class="tag">✦ Déterminée</span>
+          <span class="tag">⟡ Vive</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LORE -->
+  <section id="lore">
+    <div class="lore-inner">
+      <p class="section-label reveal">✦ Lore</p>
+      <h2 class="section-title reveal" style="transition-delay:0.1s">L'histoire de <em>Bluum</em></h2>
+
+      <blockquote class="lore-quote reveal" style="transition-delay:0.2s">
+        « Je suis née pour renouer un passé que j'ignorais depuis tout ce temps. J'ignorais... que ma destinée se déroulerait ainsi. »
+      </blockquote>
+
+      <!-- FRISE HORIZONTALE SCROLLABLE -->
+      <div class="timeline-slider reveal" style="transition-delay:0.3s">
+        <div class="timeline-track-line"></div>
+
+        <div class="timeline-viewport">
+          <div class="timeline-track" id="timelineTrack">
+
+            <div class="tl-card active">
+              <div class="tl-dot"></div>
+              <div class="tl-card-body">
+                <div class="tl-year">✦ Ère des Sheikah</div>
+                <h3 class="tl-title">The Legend of Nyx</h3>
+                <p class="tl-text">Une Sheikah du nom de Nyx traverser tout Hyrule dans le but de retrouver son ami défunt. Accompagnée de sa fée, Fey, on la dit impitoyable et sans coeur. Pourtant, derrière ces premières impressions, se cache une femme bien plus sensible qu'elle ne le laisse transparraitre. On dit qu'elle est à l'origine du feu bleu.</p>
+              </div>
+            </div>
+
+            <div class="tl-card">
+              <div class="tl-dot"></div>
+              <div class="tl-card-body">
+                <div class="tl-year">✦ Ère des Sheikah</div>
+                <h3 class="tl-title">Ancienne Calamitée</h3>
+                <p class="tl-text">Première apparition du fléau Ganon. Pour le vaincre, il aura fallut des meilleurs scientifiques Sheikah qui créeront à ce moment là, les gardiens. Le pouvoir des Gardiens, trop puissants, effayeront les Grands d'Hyrule qui préfèrerons faire partir les Sheikah du chateau.</p>
+              </div>
+            </div>
+
+            <div class="tl-card">
+              <div class="tl-dot"></div>
+              <div class="tl-card-body">
+                <div class="tl-year">✦ Ère de la nature</div>
+                <h3 class="tl-title">Grande Calamité</h3>
+                <p class="tl-text">Le fléau Ganon se réveille et brise le Hyrule connu depuis tant de temps. Les gardiens retournés contre leurs créateurs et la princesse Zelda portée disparue, Bluum née peu avant que Ganon soit sellé 100 ans plus tard par Link.</p>
+              </div>
+            </div>
+
+            <div class="tl-card">
+              <div class="tl-dot"></div>
+              <div class="tl-card-body">
+                <div class="tl-year">✦ Ère de la nature</div>
+                <h3 class="tl-title">Les Remontées du Passé</h3>
+                <p class="tl-text">Bluum est aujourd'hui une archéologue Sheikah reconnu et aguérie. Capable de lire l'ancien Hylien, elle fera au cours de sa route une terrible découverte qui la poussera à se plonger de nouveau dans l'histoire de ses ancètres. Même si Nyx aura perdue la vie par le passé, ses souhaits perdurent encore au delà du temps.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="timeline-controls">
+          <button class="tl-btn" id="tlPrev" aria-label="Précédent">←</button>
+          <div class="tl-dots" id="tlDots"></div>
+          <span class="tl-counter" id="tlCounter">1 / 4</span>
+          <button class="tl-btn" id="tlNext" aria-label="Suivant">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNIVERS — 3 PERSONNAGES -->
+  <section id="univers">
+    <div class="univers-inner">
+      <div class="univers-header reveal">
+        <p class="section-label">✦ Univers</p>
+        <h2 class="section-title">Les personnages de <em>The Legend of Nyx</em></h2>
+      </div>
+
+      <div class="chars-grid">
+
+        <!-- Personnage 1 : Bluum -->
+        <div class="char-card reveal">
+          <div class="char-portrait">
+            <div class="char-portrait-inner">
+            <img src="images/bluum-portrait.png" alt="Bluum">
+            </div>
+            <div class="char-ring"></div>
+            <div class="char-ring-2"></div>
+            <span class="char-role">Protagoniste</span>
+          </div>
+          <div class="char-name"><em>Bluum</em></div>
+          <div class="char-epithet">La Sheikah du Temps</div>
+          <p class="char-desc">Descendante de Nyx, elle porte le flanbeau des ambitions de son ancètre. Elle devra découvrir la réalité derrière son titre de traitresse Sheikah.</p>
+          <div class="char-tags">
+            <span class="char-tag">✿ Empathique</span>
+            <span class="char-tag">☽ Rêveuse</span>
+            <span class="char-tag">⟡ Vive</span>
+          </div>
+          <div class="char-divider"></div>
+        </div>
+
+        <!-- Personnage 2 : à compléter -->
+        <div class="char-card reveal" style="transition-delay:0.12s">
+          <div class="char-portrait">
+            <div class="char-portrait-inner">
+            <img src="images/nyx-portrait.png" alt="Nyx">
+            </div>
+            <div class="char-ring"></div>
+            <div class="char-ring-2"></div>
+            <span class="char-role">Ancètre</span>
+          </div>
+          <div class="char-name"><em>Nyx</em></div>
+          <div class="char-epithet">Traitresse Sheikah</div>
+          <p class="char-desc">Ancètre de Bluum, la légende dit qu'elle aurait trahis le peuple Sheikah autrefois. Certains, lui accordent même la création des Yigas. Mais peut être que l'histoire elle même ne fut qu'écrite que par les vainceurs...</p>
+          <div class="char-tags">
+            <span class="char-tag">✦ Déterminé</span>
+            <span class="char-tag">♡ Sans morale</span>
+          </div>
+          <div class="char-divider"></div>
+        </div>
+
+        <!-- Personnage 3 : à compléter -->
+        <div class="char-card reveal" style="transition-delay:0.24s">
+          <div class="char-portrait">
+            <div class="char-portrait-inner">
+            <img src="images/nele-portrait.png" alt="Nele">
+            </div>
+            <div class="char-ring"></div>
+            <div class="char-ring-2"></div>
+            <span class="char-role">?????</span>
+          </div>
+          <div class="char-name"><em>Nele</em></div>
+          <div class="char-epithet">Scientifique Sheikah</div>
+          <p class="char-desc">On sait peu de choses sur lui, outre le fait qu'il aurait travaillé il y a bien longtemps pour le royaume d'Hyrule en tant que grand scientifique. Cependant, impossible de trouver plus de traces de son existence.</p>
+          <div class="char-tags">
+            <span class="char-tag">⟡ Perspicace</span>
+            <span class="char-tag">☽ Réfléchis</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>✿ Bluum — Original Character ✿ &nbsp;|&nbsp; Fait avec <span>♡</span></p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

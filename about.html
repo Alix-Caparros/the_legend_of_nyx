@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bluum ✿ — About</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400&family=Playfair+Display:ital@1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+
+    /* ─── Lien actif nav ─── */
+    nav.top-nav ul li a.active { color: var(--deep-rose); }
+    nav.top-nav ul li a.active::after { width: 100%; }
+
+    /* ════════════════════════════════════════
+       HERO ABOUT
+    ════════════════════════════════════════ */
+    .about-hero {
+      min-height: 42vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 8rem 2rem 3.5rem;
+      text-align: center;
+      background: linear-gradient(160deg, var(--blush) 0%, var(--cream) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .about-hero-deco {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .about-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--text);
+      position: relative;
+      z-index: 2;
+    }
+    .about-hero h1 em { font-style: italic; color: var(--deep-rose); }
+    .about-hero-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ════════════════════════════════════════
+       SECTIONS COMMUNES
+    ════════════════════════════════════════ */
+    .page-section {
+      padding: 6rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .page-section-inner {
+      max-width: 960px;
+      width: 100%;
+    }
+
+    /* ════════════════════════════════════════
+       LAYOUT PORTRAIT — image + texte côte à côte
+    ════════════════════════════════════════ */
+    .portrait-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .portrait-section.reverse { direction: rtl; }
+    .portrait-section.reverse > * { direction: ltr; }
+
+    /* Zone de dessin rectangulaire */
+    .drawing-zone {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: linear-gradient(135deg, var(--blush), var(--petal));
+      border-radius: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      border: 2px dashed rgba(232,160,184,0.45);
+      position: relative;
+      overflow: hidden;
+    }
+    .drawing-zone img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      border-radius: 2rem;
+      display: block;
+    }
+    .drawing-zone-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .drawing-zone-icon { font-size: 2.4rem; opacity: 0.4; }
+    .drawing-zone-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      opacity: 0.7;
+    }
+
+    /* Texte des sections portrait */
+    .portrait-text .section-label { margin-bottom: 0.6rem; }
+    .portrait-text .section-title { margin-bottom: 1.4rem; }
+    .portrait-text p {
+      font-size: 0.88rem;
+      line-height: 2;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+    .portrait-text p:last-of-type { margin-bottom: 0; }
+    .portrait-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.6rem;
+    }
+
+    /* ════════════════════════════════════════
+       SECTION MI — rond + texte horizontal
+    ════════════════════════════════════════ */
+    .mi-layout {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .mi-circle-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .mi-drawing {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blush), var(--petal));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      border: 2px dashed rgba(232,160,184,0.45);
+      overflow: hidden;
+      box-shadow: 0 8px 28px rgba(197,96,122,0.12);
+      position: relative;
+      z-index: 1;
+    }
+    .mi-drawing img { width: 100%; height: 100%; object-fit: cover; }
+    .mi-ring {
+      position: absolute; inset: -6px; border-radius: 50%;
+      border: 1.5px solid rgba(232,160,184,0.4); pointer-events: none;
+    }
+    .mi-ring-2 {
+      position: absolute; inset: -14px; border-radius: 50%;
+      border: 1px dashed rgba(232,160,184,0.2); pointer-events: none;
+      animation: spinSlow 18s linear infinite;
+    }
+
+    /* ════════════════════════════════════════
+       SECTION CARACTÈRE — cartes style univers
+    ════════════════════════════════════════ */
+    .caractere-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.6rem;
+      margin-top: 3rem;
+    }
+    .caract-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1.2rem 1.8rem;
+      background: rgba(255,248,251,0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(232,160,184,0.22);
+      border-radius: 22px;
+      position: relative;
+      transition: transform 0.35s, box-shadow 0.35s;
+      box-shadow: 0 6px 22px rgba(197,96,122,0.07);
+    }
+    .caract-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(197,96,122,0.14);
+    }
+    .caract-portrait {
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blush), var(--petal));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem;
+      position: relative;
+      margin-bottom: 1.4rem;
+      overflow: visible;
+      flex-shrink: 0;
+      box-shadow: 0 6px 20px rgba(197,96,122,0.12);
+      transition: transform 0.35s, box-shadow 0.35s;
+    }
+    .caract-card:hover .caract-portrait {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 14px 34px rgba(197,96,122,0.2);
+    }
+    .caract-portrait-inner {
+      width: 100%; height: 100%;
+      border-radius: 50%; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .caract-portrait-inner img { width: 100%; height: 100%; object-fit: cover; }
+    .caract-ring {
+      position: absolute; inset: -4px; border-radius: 50%;
+      border: 1.5px solid rgba(232,160,184,0.45); pointer-events: none;
+    }
+    .caract-ring-2 {
+      position: absolute; inset: -10px; border-radius: 50%;
+      border: 1px dashed rgba(232,160,184,0.2); pointer-events: none;
+      animation: spinSlow 20s linear infinite;
+    }
+    .caract-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 400;
+      color: var(--text); margin-bottom: 0.5rem;
+    }
+    .caract-title em { font-style: italic; color: var(--deep-rose); }
+    .caract-desc {
+      font-size: 0.78rem; line-height: 1.85;
+      color: var(--muted); font-weight: 300;
+    }
+
+    /* ════════════════════════════════════════
+       SECTION CRÉATRICE — rond centré
+    ════════════════════════════════════════ */
+    .creatrice-drawing {
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blush), var(--petal));
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.6rem;
+      border: 2px dashed rgba(232,160,184,0.45);
+      overflow: hidden;
+      box-shadow: 0 8px 28px rgba(197,96,122,0.12);
+      flex-shrink: 0;
+    }
+    .creatrice-drawing img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ─── Séparateur floral ─── */
+    .floral-sep {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--rose);
+      letter-spacing: 0.8em;
+      opacity: 0.5;
+      padding: 0.5rem 0;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 860px) {
+      .portrait-section,
+      .portrait-section.reverse { grid-template-columns: 1fr; direction: ltr; gap: 3rem; }
+      .mi-layout { grid-template-columns: 1fr; justify-items: center; }
+      .caractere-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .caractere-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="top-nav" aria-label="Navigation principale">
+    <a class="nav-logo" href="index.html"><img src="images/logo.png" width="400" alt="Bluum"></a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="lore.html">Lore</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <div class="about-hero">
+    <div class="about-hero-deco" style="width:340px;height:340px;background:radial-gradient(circle,rgba(232,160,184,0.2) 0%,transparent 70%);top:-80px;right:-80px;animation:floatA 7s ease-in-out infinite;"></div>
+    <div class="about-hero-deco" style="width:220px;height:220px;background:radial-gradient(circle,rgba(249,217,227,0.3) 0%,transparent 70%);bottom:-40px;left:-40px;animation:floatB 9s ease-in-out infinite;"></div>
+    <p class="about-hero-label">✦ About</p>
+    <h1>Bluum la <em>Sheikah du temps</em></h1>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       1 — BLUUM : Histoire & portrait
+  ══════════════════════════════════════ -->
+  <div class="page-section" style="background:var(--white);">
+    <div class="page-section-inner">
+      <div class="portrait-section reveal">
+
+        <div class="drawing-zone">
+        <img src="images/bluum-histoire.png" alt="Bluum">
+        </div>
+
+        <div class="portrait-text">
+          <p class="section-label">✦ Protagoniste</p>
+          <h2 class="section-title">Une fille <em>douce</em><br/>au passé complexe</h2>
+          <p>
+            Bluum est une Sheikah passionnée par le temps. Accompagnée de sa fée Mi, elle sera décrite par son entourage comme une femme curieuse et enthousiaste, toujours là pour redonner le sourire à qui le demande.
+          </p>
+          <p>
+            Pourtant, derrière ses grands rêves d'amour, elle découvrira une destinée qu'elle n'aura jamais demandée. Celle de corriger les erreurs passées de son ancêtre qui était, auparavant, bien l'opposé de sa descendante.
+          </p>
+          <p>
+            Capable de lire l'ancien Hylien, Bluum est une archéologue reconnue et aguerrie. C'est au cours de ses fouilles qu'elle fera une terrible découverte qui la plongera de nouveau dans l'histoire de ses ancêtres.
+          </p>
+          <div class="portrait-tags">
+            <span class="tag">✿ Extravertie</span>
+            <span class="tag">☽ Rêveuse</span>
+            <span class="tag">♡ Empathique</span>
+            <span class="tag">✦ Déterminée</span>
+            <span class="tag">⟡ Vive</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="floral-sep">✿ ✦ ✿ ✦ ✿</div>
+
+  <!-- ══════════════════════════════════════
+       2 — MI : La fée compagnon
+  ══════════════════════════════════════ -->
+  <div class="page-section" style="background:linear-gradient(160deg, var(--blush) 0%, var(--cream) 100%);">
+    <div class="page-section-inner">
+
+      <div style="text-align:center; margin-bottom:3.5rem;" class="reveal">
+        <p class="section-label">✦ Compagnon</p>
+        <h2 class="section-title"><em>Mi</em>, la fée de Bluum</h2>
+      </div>
+
+      <div class="mi-layout reveal" style="transition-delay:0.1s">
+
+        <div class="mi-circle-wrap">
+          <div class="mi-drawing">
+            <!-- ✏️ Remplace par : <img src="images/mi.png" alt="Mi"> -->
+            <div class="drawing-zone-placeholder">
+            <img src="images/mi.jpg" alt="Mi">
+            </div>
+          </div>
+          <div class="mi-ring"></div>
+          <div class="mi-ring-2"></div>
+        </div>
+
+        <div class="portrait-text">
+          <p class="section-label">✦ Fée compagnon</p>
+          <h2 class="section-title" style="font-size:clamp(1.8rem,3.5vw,2.6rem);">Une petite lumière<br/><em>toujours présente</em></h2>
+          <p>
+            Mi est la fée qui accompagne Bluum depuis aussi loin qu'elle s'en souvienne. Petite lueur rose au battement d'ailes délicat, elle est à la fois la conscience, la gardienne et la meilleure amie de Bluum.
+          </p>
+          <p>
+            Discrète mais espiègle, Mi n'hésite pas à rappeler Bluum à l'ordre quand celle-ci s'emballe trop vite. En retour, Bluum lui confie ses secrets les plus profonds, ceux qu'elle ne dirait à personne d'autre.
+          </p>
+          <p>
+            On dit que Mi est l'amplificatrice de la magie florale de Bluum, que c'est leur lien, plus que tout autre chose, qui permet à Bluum de faire s'épanouir ce qui semblait perdu.
+          </p>
+          <div class="portrait-tags">
+            <span class="tag">✨ Lumineuse</span>
+            <span class="tag">☽ Espiègle</span>
+            <span class="tag">♡ Loyale</span>
+            <span class="tag">⟡ Sage</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="floral-sep">✿ ✦ ✿ ✦ ✿</div>
+
+  <!-- ══════════════════════════════════════
+       3 — CARACTÈRE : Cartes avec ronds
+  ══════════════════════════════════════ -->
+  <div class="page-section" style="background:var(--white);">
+    <div class="page-section-inner">
+
+      <div style="text-align:center;" class="reveal">
+        <p class="section-label">✦ Caractère</p>
+        <h2 class="section-title">Les facettes de <em>Bluum</em></h2>
+        <p style="font-size:0.88rem;line-height:2;color:var(--muted);font-weight:300;max-width:520px;margin:0 auto;">
+          Une simple Sheikah un peu rêveuse ? Il semblerait que Bluum soit bien plus que ça...
+        </p>
+      </div>
+
+      <div class="caractere-grid">
+
+        <div class="caract-card reveal">
+          <div class="caract-portrait">
+            <div class="caract-portrait-inner">
+              <img src="images/caract-1.png" alt="Empathique">
+            </div>
+            <div class="caract-ring"></div>
+            <div class="caract-ring-2"></div>
+          </div>
+          <div class="caract-title"><em>Empathique</em></div>
+          <p class="caract-desc">Bluum ressent profondément les émotions des autres. Cette sensibilité est à la fois sa plus grande force et sa plus grande vulnérabilité.</p>
+        </div>
+
+        <div class="caract-card reveal" style="transition-delay:0.08s">
+          <div class="caract-portrait">
+            <div class="caract-portrait-inner">
+              <img src="images/caract-2.png" alt="Rêveuse">
+            </div>
+            <div class="caract-ring"></div>
+            <div class="caract-ring-2"></div>
+          </div>
+          <div class="caract-title"><em>Rêveuse</em></div>
+          <p class="caract-desc">La tête souvent dans les nuages, elle voit le monde différemment. Ses rêves sont peuplés de souvenirs qui ne lui appartiennent pas encore.</p>
+        </div>
+
+        <div class="caract-card reveal" style="transition-delay:0.16s">
+          <div class="caract-portrait">
+            <div class="caract-portrait-inner">
+              <img src="images/caract-3.png" alt="Vive">
+            </div>
+            <div class="caract-ring"></div>
+            <div class="caract-ring-2"></div>
+          </div>
+          <div class="caract-title"><em>Vive</em></div>
+          <p class="caract-desc">Enthousiaste et curieuse, Bluum se lance dans les aventures avec une énergie qui fait sourire son entourage... et parfois trembler Mi.</p>
+        </div>
+
+        <div class="caract-card reveal" style="transition-delay:0.24s">
+          <div class="caract-portrait">
+            <div class="caract-portrait-inner">
+              <img src="images/caract-4.png" alt="Déterminée">
+            </div>
+            <div class="caract-ring"></div>
+            <div class="caract-ring-2"></div>
+          </div>
+          <div class="caract-title"><em>Déterminée</em></div>
+          <p class="caract-desc">Quand Bluum décide quelque chose, rien ne peut l'en détourner. Même les vérités les plus douloureuses ne l'arrêtent pas longtemps.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="floral-sep">✿ ✦ ✿ ✦ ✿</div>
+
+  <!-- ══════════════════════════════════════
+       4 — CRÉATRICE
+  ══════════════════════════════════════ -->
+  <div class="page-section" style="background:linear-gradient(160deg, var(--petal) 0%, var(--cream) 100%);">
+    <div class="page-section-inner">
+      <div class="portrait-section reverse reveal">
+
+        <div class="portrait-text">
+          <p class="section-label">✦ Créatrice</p>
+          <h2 class="section-title">Derrière <em>Bluum</em>,<br/>une passionnée</h2>
+          <p>
+            <!-- ✏️ Parle de toi ici : qui tu es, d'où vient l'idée de Bluum, ce que cet univers représente pour toi... -->
+            Moi c'est Blossum ! Dessinatrice depuis une dizaine d'années, je me suis diversifiée avec le temps : dev app/web, graphisme, écriture... et même de la patisserie ! J'ai découvert la licence à mes 3 ans avec Zelda OOT sur Gamecube. Elle m'aura accompagnée toute ma vie, que ce soit lors des moment de joie ou de tristesse, et aujourd'hui, c'est avec vous que je veux partager cette passion !
+          </p>
+          <p>
+            <!-- ✏️ Second paragraphe si tu le souhaites -->
+          </p>
+          <div class="portrait-tags">
+            <!-- ✏️ Tes propres tags -->
+            <span class="tag">✿ Maladroite</span>
+            <span class="tag">☽ (Beaucoup trop) Active</span>
+            <span class="tag">♡ Streameuse (de temps en temps)</span>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:center;">
+          <div style="position:relative;">
+            <div class="creatrice-drawing">
+              <div class="drawing-zone-placeholder">
+                <img src="images/creatrice.png" alt="La créatrice">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>✿ Bluum — Original Character ✿ &nbsp;|&nbsp; Fait avec <span>♡</span></p>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
+  </script>
+
+</body>
+</html>
